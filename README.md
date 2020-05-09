@@ -32,25 +32,30 @@ For each part, we measure all of the following parameters:
 1. Install [Anaconda](https://www.anaconda.com/distribution/) first
 2. Then use:
 ```
-conda env create -f environment.yml
+$ pip install -r requirements.txt
 ```
 
 ## Run
 
 ### For single image analysis
+- filename:
+    - filename-0001.tif    -> Raw Picture
+    - filename-0002.tif    -> Yellow lines for choroid positions
+    - filename-0003.tif    -> Yellow dot for macular position
+    - filename-NiBlack.tif -> NiBlack Binary image
 
-- filename-0001.tif    -> Raw Picture
-- filename-0002.tif    -> Yellow lines for choroid positions
-- filename-0003.tif    -> Yellow dot for macular position
-- filename-NiBlack.tif -> NiBlack Binary image
-
-#### Analyse single file:
+Using the command below:
 ```bash
-python index.py --img filename
+$ python index.py --img filename_A
 ```
+For debugging purpose:
+```bash
+$ python index.py --img filename_A --logging_level DEBUG
+```
+
 #### Sample Run:
 ```bash
-python index.py --img ./sample_single/STDR059_20151209_103654_OPT_R_001
+python index.py --img ./data/example_1
 ```
 ### For batch analysis
 - **FOLDER**:
@@ -72,7 +77,7 @@ python index.py --folder PATH_TO_FOLDER
 ```
 #### Sample Run:
 ```bash
-python index.py --folder ./sample_batch
+python index.py --folder ./data
 ```
 
 ## Command Flags:
@@ -89,3 +94,10 @@ This programme will generally generate two files for each image:
 - Analyzed images. Records how the programme runs. Helps debug.
     - One for raw image.
     - One for binary image.
+
+Resulting visualizations:
+
+<p float="middle">
+    <img src="./data/example_2/example_2_results_raw.jpg">
+    <img src="./data/example_2/example_2_results_bin.jpg">
+</p>

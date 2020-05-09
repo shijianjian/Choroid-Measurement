@@ -522,12 +522,15 @@ if __name__ == '__main__':
             dfs.append(get_results(run_name, 'skipped'))
             skipped.append(run_name)
             continue
-        try:
+        if args.folder is None and logging_level.upper() == 'DEBUG':
             run(run_name, '%s_results' % run_name, show_results=False)
-        except Exception as e:
-            logger.info('Failed at %d/%d, %s \n stack trace as %s' % (idx + 1, len(run_names), run_name, e))
-            failed.append(run_name)
-            continue
+        else:
+            try:
+                run(run_name, '%s_results' % run_name, show_results=False)
+            except Exception as e:
+                logger.info('Failed at %d/%d, %s \n stack trace as %s' % (idx + 1, len(run_names), run_name, e))
+                failed.append(run_name)
+                continue
         logger.info('Succeed at %d/%d, %s' % (idx + 1, len(run_names), run_name))
         succeed.append(run_name)
         dfs.append(get_results(run_name, 'runned'))
