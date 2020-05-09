@@ -96,8 +96,6 @@ This programme will generally generate two files for each image:
     - One for binary image.
 
 Resulting visualizations:
-
-<p float="middle">
-    <img src="./data/example_2/example_2_results_raw.jpg">
-    <img src="./data/example_2/example_2_results_bin.jpg">
-</p>
+Raw Image Output         |  Binary Image Output
+:-------------------------:|:-------------------------:
+![](./data/example_2/example_2_results_raw.jpg)  |  ![](./data/example_2/example_2_results_bin.jpg)
